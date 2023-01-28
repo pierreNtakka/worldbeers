@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardview_beer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_10_dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin_10_dp">
+
+        <ImageView
+            android:id="@+id/imageView_beer"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_connection_error"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textview_beer_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_10_dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_16_sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/imageView_beer"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Peroni" />
+
+
+        <TextView
+            android:id="@+id/textview_beer_desc"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_10_dp"
+            android:layout_marginTop="@dimen/margin_5_dp"
+            android:layout_marginBottom="@dimen/margin_5_dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:maxLines="5"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14_sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@+id/textview_beer_alcohol_content"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/imageView_beer"
+            app:layout_constraintTop_toBottomOf="@+id/textview_beer_name"
+            tools:text="La peroni è una birra semplice ma buona,La peroni è una birra semplice ma buona" />
+
+        <TextView
+            android:id="@+id/textview_beer_alcohol_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_10_dp"
+            android:layout_marginBottom="@dimen/margin_5_dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14_sp"
+            app:layout_constraintBottom_toTopOf="@+id/textview_beer_ibu"
+            app:layout_constraintStart_toEndOf="@+id/imageView_beer"
+            tools:text="Alcohol Content: 20" />
+
+        <TextView
+            android:id="@+id/textview_beer_ibu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_10_dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14_sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView_beer"
+            tools:text="Ibu: 20" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

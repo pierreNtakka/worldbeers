@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/listBeerFragment">
+
+    <fragment
+        android:id="@+id/listBeerFragment"
+        android:name="com.ditta.worldbeers.ui.ListBeerFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_listBeerFragment_to_detailBeerFragment"
+            app:destination="@id/detailBeerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailBeerFragment"
+        android:name="com.ditta.worldbeers.ui.DetailBeerFragment"
+        android:label="{beerName}">
+        <argument
+            android:name="beerName"
+            app:argType="string" />
+        <argument
+            android:name="firstBrewed"
+            app:argType="string" />
+        <argument
+            android:name="foodPairing"
+            app:argType="string[]" />
+        <argument
+            android:name="brewersTips"
+            app:argType="string" />
+    </fragment>
+</navigation>

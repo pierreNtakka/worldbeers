@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WorldBeers</string>
+
+    <string name="refresh">Sync</string>
+    <string name="search">Search</string>
+    <string name="alcohol_content_label"> &lt;b>Alcohol content:&lt;/b> %s</string>
+    <string name="ibu_label"> &lt;b>IBU:&lt;/b> %s</string>
+    <string name="food_pairing">Food Pairing</string>
+    <string name="first_brewed_label"> &lt;b>First Brewed:&lt;/b> %s</string>
+    <string name="brewed_tips">Brewed Tips</string>
+</resources>
