@@ -11,7 +11,7 @@ data class Beer(
     val description: String,
     @SerializedName("image_url") val imageUrl: String,
     val abv: Double,
-    val ibu: Double,
+    val ibu: Double?,
     @SerializedName("target_fg") val targetFg: Int,
     @SerializedName("target_og") val targetOg: Double,
     val ebc: Int,

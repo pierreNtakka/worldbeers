@@ -90,8 +90,11 @@ class BeerAdapter(
                     itemView.context.getString(R.string.alcohol_content_label, beer.abv.toString()),
                     HtmlCompat.FROM_HTML_MODE_COMPACT
                 )
+
+                val ibu = if (beer.ibu == null) "N/A" else beer.ibu.toString()
+
                 textviewBeerIbu.text = HtmlCompat.fromHtml(
-                    itemView.context.getString(R.string.ibu_label, beer.abv.toString()),
+                    itemView.context.getString(R.string.ibu_label, ibu),
                     HtmlCompat.FROM_HTML_MODE_COMPACT
                 )
             }

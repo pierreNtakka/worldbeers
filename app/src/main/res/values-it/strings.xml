@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Birre del Mondo</string>
+
+    <string name="refresh">Sincronizza</string>
+    <string name="search">Cerca</string>
+    <string name="alcohol_content_label"> &lt;b>Contenuto Alcolico:&lt;/b> %s</string>
+    <string name="ibu_label"> &lt;b>IBU:&lt;/b> %s</string>
+    <string name="food_pairing">Abbinamento gastronomico</string>
+    <string name="first_brewed_label"> &lt;b>Prima produzione:&lt;/b> %s</string>
+    <string name="brewed_tips">Suggerimenti</string>
+</resources>
