@@ -8,4 +8,5 @@
     <string name="food_pairing">Food Pairing</string>
     <string name="first_brewed_label"> &lt;b>First Brewed:&lt;/b> %s</string>
     <string name="brewed_tips">Brewed Tips</string>
+    <string name="tap_to_retry">Tap to Retry</string>
 </resources>

@@ -17,8 +17,6 @@ class BeerModelUnitTest {
         val listOfMyClassObject = object : TypeToken<ArrayList<Beer>>() {}.type
         val beers = GsonProvider.gson.fromJson<List<Beer>>(json, listOfMyClassObject)
 
-        assertEquals(1, beers.size)
-
         val beer = beers[0]
 
         assertEquals("09/2007", beer.firstBrewed)

@@ -8,4 +8,5 @@
     <string name="food_pairing">Abbinamento gastronomico</string>
     <string name="first_brewed_label"> &lt;b>Prima produzione:&lt;/b> %s</string>
     <string name="brewed_tips">Suggerimenti</string>
+    <string name="tap_to_retry">Riprova</string>
 </resources>

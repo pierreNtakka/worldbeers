@@ -14,7 +14,7 @@ data class Beer(
     val ibu: Double?,
     @SerializedName("target_fg") val targetFg: Int,
     @SerializedName("target_og") val targetOg: Double,
-    val ebc: Int,
+    val ebc: Double,
     val srm: Double,
     val ph: Double,
     @SerializedName("attenuation_level") val attenuationLevel: Double,
