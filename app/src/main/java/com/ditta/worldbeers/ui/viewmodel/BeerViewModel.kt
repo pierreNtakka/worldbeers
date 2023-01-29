@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import com.ditta.worldbeers.network.Constants.MAX_RESULT_PER_PAGE
+import com.ditta.worldbeers.network.PunkApiConstant.MAX_RESULT_PER_PAGE
 import com.ditta.worldbeers.network.PunkRepository
 import com.ditta.worldbeers.paging.BeerPagingSource
 

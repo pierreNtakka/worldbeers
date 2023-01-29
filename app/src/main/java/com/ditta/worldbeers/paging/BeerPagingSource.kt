@@ -3,7 +3,7 @@ package com.ditta.worldbeers.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.ditta.worldbeers.model.Beer
-import com.ditta.worldbeers.network.Constants.INITIAL_PAGE_INDEX
+import com.ditta.worldbeers.network.PunkApiConstant.INITIAL_PAGE_INDEX
 import com.ditta.worldbeers.network.PunkRepository
 import okio.IOException
 import retrofit2.HttpException
@@ -26,7 +26,7 @@ class BeerPagingSource(
                 if (response.isEmpty()) {
                     null
                 } else {
-                    pageIndex + 1
+                    pageIndex.plus(1)
                 }
             LoadResult.Page(
                 data = response,

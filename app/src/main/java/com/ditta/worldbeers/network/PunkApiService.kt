@@ -1,21 +1,21 @@
 package com.ditta.worldbeers.network
 
 
-import com.ditta.worldbeers.BuildConfig
 import com.ditta.worldbeers.model.Beer
-import com.ditta.worldbeers.model.GsonProvider
-import com.ditta.worldbeers.network.Constants.BASE_URL
-import com.ditta.worldbeers.network.Constants.BEERNAME_QUERY_PARAM_NAME
-import com.ditta.worldbeers.network.Constants.END_POINT_BEER
-import com.ditta.worldbeers.network.Constants.PAGE_QUERY_PARAM_NAME
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import com.ditta.worldbeers.network.PunkApiConstant.BEERNAME_QUERY_PARAM_NAME
+import com.ditta.worldbeers.network.PunkApiConstant.END_POINT_BEER
+import com.ditta.worldbeers.network.PunkApiConstant.PAGE_QUERY_PARAM_NAME
 import retrofit2.http.GET
 import retrofit2.http.Query
-import java.util.concurrent.TimeUnit
 
+object PunkApiConstant {
+    const val BASE_URL = "https://api.punkapi.com/v2/"
+    const val END_POINT_BEER: String = "beers"
+    const val PAGE_QUERY_PARAM_NAME = "page"
+    const val BEERNAME_QUERY_PARAM_NAME = "beer_name"
+    const val INITIAL_PAGE_INDEX = 1
+    const val MAX_RESULT_PER_PAGE = 25
+}
 
 interface PunkApiService {
     @GET(END_POINT_BEER)
@@ -26,31 +26,8 @@ interface PunkApiService {
 }
 
 object PunkApi {
-
-    private const val CONNECT_TIMEOUT = 20L
-    private const val READ_TIMEOUT = 60L
-    private const val WRITE_TIMEOUT = 120L
-
-    val retrofitService: PunkApiService by lazy {
-
-        val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
-            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-            else HttpLoggingInterceptor.Level.NONE
-        }
-        val client: OkHttpClient = OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
-            .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
-            .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
-            .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
-            .build()
-
-        val retrofit = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create(GsonProvider.gson))
-            .baseUrl(BASE_URL)
-            .client(client)
-            .build()
-
-        retrofit.create(PunkApiService::class.java)
+    val punkApiService: PunkApiService by lazy {
+        NetworkModule.retrofitService.create(PunkApiService::class.java)
     }
 }
 
