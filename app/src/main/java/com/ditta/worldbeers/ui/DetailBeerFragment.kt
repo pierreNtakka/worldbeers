@@ -12,19 +12,19 @@ import com.ditta.worldbeers.ui.adapter.FoodPairingAdapter
 
 class DetailBeerFragment : Fragment() {
 
-    private var _binding: FragmentDetailBeerBinding? = null
-    private val binding get() = _binding!!
-
-    private lateinit var firstBrewed: String
-    private lateinit var foodPairing: List<String>
-    private lateinit var brewersTips: String
-
     companion object {
         const val FIRST_BREWED = "firstBrewed"
         const val FOOD_PAIRING = "foodPairing"
         const val BREWERS_TIPS = "brewersTips"
     }
 
+    private var _binding: FragmentDetailBeerBinding? = null
+    private val binding get() = _binding!!
+
+    private lateinit var firstBrewed: String
+    private lateinit var foodPairing: List<String>
+    private lateinit var brewersTips: String
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

@@ -27,7 +27,7 @@ interface PunkApiService {
 }
 
 object PunkApi {
-    val punkApiService: PunkApiService by lazy {
+    val service: PunkApiService by lazy {
         NetworkModule.provideRetrofitClient(BASE_URL).create(PunkApiService::class.java)
     }
 }

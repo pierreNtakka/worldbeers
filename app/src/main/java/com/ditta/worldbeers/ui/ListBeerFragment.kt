@@ -72,9 +72,9 @@ class ListBeerFragment : Fragment(), MenuProvider {
     }
 
 
-    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) =
         menuInflater.inflate(R.menu.menu_item, menu)
-    }
+
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
