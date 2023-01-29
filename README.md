@@ -1,4 +1,4 @@
-# worldbeers
+# Worldbeers App
 
 Android MMVM example APP.
 
