@@ -4,6 +4,7 @@ package com.ditta.worldbeers.network
 import com.ditta.worldbeers.model.Beer
 import com.ditta.worldbeers.model.GsonProvider
 import com.ditta.worldbeers.network.Constants.BASE_URL
+import com.ditta.worldbeers.network.Constants.BEERNAME_QUERY_PARAM_NAME
 import com.ditta.worldbeers.network.Constants.END_POINT_BEER
 import com.ditta.worldbeers.network.Constants.PAGE_QUERY_PARAM_NAME
 import okhttp3.OkHttpClient
@@ -17,8 +18,8 @@ import retrofit2.http.Query
 interface PunkApiService {
     @GET(END_POINT_BEER)
     suspend fun getBeers(
-        @Query(PAGE_QUERY_PARAM_NAME) page: Int?,
-        @Query("beer_name") beerName: String? = null,
+        @Query(PAGE_QUERY_PARAM_NAME) page: Int? = null,
+        @Query(BEERNAME_QUERY_PARAM_NAME) beerName: String? = null,
     ): List<Beer>
 }
 

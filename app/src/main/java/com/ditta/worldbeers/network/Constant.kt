@@ -7,7 +7,5 @@ object Constants {
     const val PAGE_QUERY_PARAM_NAME = "page"
     const val BEERNAME_QUERY_PARAM_NAME = "beer_name"
     const val INITIAL_PAGE_INDEX = 1
-    const val MAX_PAGE_INDEX = 13
-    const val MAX_RESULT_PER_PAGE = 25
 
 }

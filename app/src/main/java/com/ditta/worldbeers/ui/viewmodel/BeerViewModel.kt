@@ -13,7 +13,7 @@ import com.ditta.worldbeers.paging.BeerPagingSource
 class BeerListViewModel(private val punkRepository: PunkRepository) : ViewModel() {
 
     val beer = Pager(
-        config = PagingConfig(pageSize = Constants.MAX_RESULT_PER_PAGE, prefetchDistance = 2),
+        config = PagingConfig(pageSize = 1, prefetchDistance = 2),
         pagingSourceFactory = {
             BeerPagingSource(punkRepository)
         }).flow.cachedIn(viewModelScope)
