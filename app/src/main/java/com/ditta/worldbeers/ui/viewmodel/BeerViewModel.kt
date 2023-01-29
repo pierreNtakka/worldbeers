@@ -24,7 +24,7 @@ class BeerListViewModel(private val punkRepository: PunkRepository) : ViewModel(
 
 
     fun findByBeerName(beerName: String) {
-        val beerNameReplaced = beerName.replace(" ", "_")
+        val beerNameReplaced = beerName.lowercase().replace(" ", "_")
 
     }
 

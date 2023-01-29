@@ -1,6 +1,7 @@
 package com.ditta.worldbeers.network
 
 
+import com.ditta.worldbeers.BuildConfig
 import com.ditta.worldbeers.model.Beer
 import com.ditta.worldbeers.model.GsonProvider
 import com.ditta.worldbeers.network.Constants.BASE_URL
@@ -13,6 +14,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
+import java.util.concurrent.TimeUnit
 
 
 interface PunkApiService {
@@ -25,13 +27,21 @@ interface PunkApiService {
 
 object PunkApi {
 
+    private const val CONNECT_TIMEOUT = 20L
+    private const val READ_TIMEOUT = 60L
+    private const val WRITE_TIMEOUT = 120L
+
     val retrofitService: PunkApiService by lazy {
 
-        val logging = HttpLoggingInterceptor()
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-
+        val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+            else HttpLoggingInterceptor.Level.NONE
+        }
         val client: OkHttpClient = OkHttpClient.Builder()
-            .addInterceptor(logging)
+            .addInterceptor(httpLoggingInterceptor)
+            .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
+            .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+            .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
             .build()
 
         val retrofit = Retrofit.Builder()
