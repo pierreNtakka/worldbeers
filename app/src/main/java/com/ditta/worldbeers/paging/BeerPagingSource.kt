@@ -9,7 +9,8 @@ import okio.IOException
 import retrofit2.HttpException
 
 class BeerPagingSource(
-    private val repository: PunkRepository
+    private val repository: PunkRepository,
+    private val currentSearch: String? = ""
 ) : PagingSource<Int, Beer>() {
 
     override fun getRefreshKey(state: PagingState<Int, Beer>): Int? {
@@ -20,7 +21,12 @@ class BeerPagingSource(
 
         val pageIndex = params.key ?: INITIAL_PAGE_INDEX
         return try {
-            val response = repository.getBeer(page = pageIndex)
+
+            val response = if (currentSearch?.isEmpty() == true) {
+                repository.getBeer(page = pageIndex)
+            } else {
+                repository.getBeer(page = pageIndex, beerName = currentSearch)
+            }
 
             val nextKey =
                 if (response.isEmpty()) {

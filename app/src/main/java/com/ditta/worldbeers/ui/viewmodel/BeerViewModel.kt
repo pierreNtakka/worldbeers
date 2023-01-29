@@ -12,6 +12,16 @@ import com.ditta.worldbeers.paging.BeerPagingSource
 
 class BeerListViewModel(private val punkRepository: PunkRepository) : ViewModel() {
 
+
+    private var currentUserSearch = ""
+
+    private var pagingSource: BeerPagingSource? = null
+        get() {
+            if (field == null || field?.invalid == true)
+                field = BeerPagingSource(punkRepository, currentUserSearch)
+            return field
+        }
+
     val beer = Pager(
         config = PagingConfig(
             pageSize = MAX_RESULT_PER_PAGE,
@@ -19,13 +29,18 @@ class BeerListViewModel(private val punkRepository: PunkRepository) : ViewModel(
             enablePlaceholders = false
         ),
         pagingSourceFactory = {
-            BeerPagingSource(punkRepository)
+            pagingSource!!
         }).flow.cachedIn(viewModelScope)
 
 
     fun findByBeerName(beerName: String) {
-        val beerNameReplaced = beerName.lowercase().replace(" ", "_")
+        currentUserSearch = beerName.lowercase().replace(" ", "_")
+        pagingSource?.invalidate()
+    }
 
+    fun sync(){
+        currentUserSearch = ""
+        pagingSource?.invalidate()
     }
 
 }
