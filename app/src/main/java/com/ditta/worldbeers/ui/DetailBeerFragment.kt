@@ -16,7 +16,7 @@ class DetailBeerFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var firstBrewed: String
-    private lateinit var foodPairing: Array<String>
+    private lateinit var foodPairing: List<String>
     private lateinit var brewersTips: String
 
     companion object {
@@ -30,7 +30,7 @@ class DetailBeerFragment : Fragment() {
         arguments?.let {
             firstBrewed = it.getString(FIRST_BREWED).toString()
             brewersTips = it.getString(BREWERS_TIPS).toString()
-            foodPairing = it.getStringArray(FOOD_PAIRING)?.toList()?.toTypedArray() ?: emptyArray()
+            foodPairing = it.getStringArray(FOOD_PAIRING)?.toList() ?: emptyList()
         }
     }
 
