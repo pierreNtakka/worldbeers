@@ -14,8 +14,8 @@ object NetworkModule {
     private const val READ_TIMEOUT = 60L
     private const val WRITE_TIMEOUT = 120L
 
-    val retrofitService: Retrofit by lazy {
 
+    fun provideRetrofitClient(baseUrl: String): Retrofit {
         val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
             else HttpLoggingInterceptor.Level.NONE
@@ -27,9 +27,9 @@ object NetworkModule {
             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
             .build()
 
-        Retrofit.Builder()
+        return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(GsonProvider.gson))
-            .baseUrl(PunkApiConstant.BASE_URL)
+            .baseUrl(baseUrl)
             .client(client)
             .build()
     }

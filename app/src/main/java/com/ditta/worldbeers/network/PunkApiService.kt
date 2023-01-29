@@ -2,6 +2,7 @@ package com.ditta.worldbeers.network
 
 
 import com.ditta.worldbeers.model.Beer
+import com.ditta.worldbeers.network.PunkApiConstant.BASE_URL
 import com.ditta.worldbeers.network.PunkApiConstant.BEERNAME_QUERY_PARAM_NAME
 import com.ditta.worldbeers.network.PunkApiConstant.END_POINT_BEER
 import com.ditta.worldbeers.network.PunkApiConstant.PAGE_QUERY_PARAM_NAME
@@ -27,7 +28,7 @@ interface PunkApiService {
 
 object PunkApi {
     val punkApiService: PunkApiService by lazy {
-        NetworkModule.retrofitService.create(PunkApiService::class.java)
+        NetworkModule.provideRetrofitClient(BASE_URL).create(PunkApiService::class.java)
     }
 }
 
