@@ -10,13 +10,19 @@ import com.ditta.worldbeers.network.Constants
 import com.ditta.worldbeers.network.PunkRepository
 import com.ditta.worldbeers.paging.BeerPagingSource
 
-class BeerListViewModelTest(private val punkRepository: PunkRepository) : ViewModel() {
+class BeerListViewModel(private val punkRepository: PunkRepository) : ViewModel() {
 
     val beer = Pager(
         config = PagingConfig(pageSize = Constants.MAX_RESULT_PER_PAGE, prefetchDistance = 2),
         pagingSourceFactory = {
             BeerPagingSource(punkRepository)
         }).flow.cachedIn(viewModelScope)
+
+
+    fun findByBeerName(beerName: String) {
+        val beerNameReplaced = beerName.replace(" ", "_")
+
+    }
 
 }
 
@@ -26,9 +32,9 @@ class BeerListViewModelFactory(
 ) :
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(BeerListViewModelTest::class.java)) {
+        if (modelClass.isAssignableFrom(BeerListViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return BeerListViewModelTest(
+            return BeerListViewModel(
                 punkRepository
             ) as T
         }

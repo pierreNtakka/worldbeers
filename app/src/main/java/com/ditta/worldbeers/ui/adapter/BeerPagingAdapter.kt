@@ -40,7 +40,6 @@ class BeerPagingAdapter(
     override fun onBindViewHolder(holder: BeerPagingAdapter.BeerViewHolder, position: Int) {
         val item = getItem(position)
         item?.let { holder.bind(item, onItemClicked) }
-
     }
 
 

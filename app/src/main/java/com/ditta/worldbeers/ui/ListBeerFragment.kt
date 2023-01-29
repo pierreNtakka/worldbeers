@@ -15,8 +15,8 @@ import com.ditta.worldbeers.model.Beer
 import com.ditta.worldbeers.network.PunkRepository
 import com.ditta.worldbeers.ui.adapter.BeerLoadStateAdapter
 import com.ditta.worldbeers.ui.adapter.BeerPagingAdapter
+import com.ditta.worldbeers.ui.viewmodel.BeerListViewModel
 import com.ditta.worldbeers.ui.viewmodel.BeerListViewModelFactory
-import com.ditta.worldbeers.ui.viewmodel.BeerListViewModelTest
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -27,7 +27,7 @@ class ListBeerFragment : Fragment(), MenuProvider {
 
     private lateinit var beerAdapter: BeerPagingAdapter
 
-    private val viewModel: BeerListViewModelTest by viewModels {
+    private val viewModel: BeerListViewModel by viewModels {
         BeerListViewModelFactory(punkRepository = PunkRepository())
     }
 
@@ -83,12 +83,11 @@ class ListBeerFragment : Fragment(), MenuProvider {
 
                 searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                     override fun onQueryTextSubmit(query: String?): Boolean {
-                        //beerAdapter?.filter?.filter(query)
+                        query?.let { viewModel.findByBeerName(query) }
                         return false
                     }
 
                     override fun onQueryTextChange(newText: String?): Boolean {
-                        //beerAdapter?.filter?.filter(newText)
                         return false
                     }
                 })
