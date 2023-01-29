@@ -6,14 +6,18 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
-import com.ditta.worldbeers.network.Constants
+import com.ditta.worldbeers.network.Constants.MAX_RESULT_PER_PAGE
 import com.ditta.worldbeers.network.PunkRepository
 import com.ditta.worldbeers.paging.BeerPagingSource
 
 class BeerListViewModel(private val punkRepository: PunkRepository) : ViewModel() {
 
     val beer = Pager(
-        config = PagingConfig(pageSize = 1, prefetchDistance = 2),
+        config = PagingConfig(
+            pageSize = MAX_RESULT_PER_PAGE,
+            prefetchDistance = 2,
+            enablePlaceholders = false
+        ),
         pagingSourceFactory = {
             BeerPagingSource(punkRepository)
         }).flow.cachedIn(viewModelScope)

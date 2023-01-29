@@ -94,7 +94,7 @@ class ListBeerFragment : Fragment(), MenuProvider {
                 true
             }
             R.id.action_sync -> {
-                beerAdapter.retry()
+                beerAdapter.refresh()
                 true
             }
 
