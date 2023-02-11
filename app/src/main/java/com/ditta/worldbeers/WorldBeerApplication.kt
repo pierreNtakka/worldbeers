@@ -13,7 +13,7 @@ class WorldBeerApplication : Application() {
         super.onCreate()
 
         startKoin {
-            androidLogger(Level.DEBUG)
+            androidLogger(if (BuildConfig.DEBUG) Level.DEBUG else Level.NONE)
             androidContext(this@WorldBeerApplication)
             modules(appModule)
         }

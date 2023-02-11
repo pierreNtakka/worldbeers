@@ -7,7 +7,7 @@ import com.ditta.worldbeers.network.PunkApiConstant.READ_TIMEOUT
 import com.ditta.worldbeers.network.PunkApiConstant.WRITE_TIMEOUT
 import com.ditta.worldbeers.network.PunkRepository
 import com.ditta.worldbeers.network.PunkRepositoryImpl
-import com.ditta.worldbeers.network.RetrofitFactory
+import com.ditta.worldbeers.network.BaseRetrofitClient
 import com.ditta.worldbeers.ui.viewmodel.BeerListViewModel
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -26,11 +26,7 @@ val converterFactoryModule = module {
     }
 
     single<Converter.Factory>(koinQualifierConverterFactoryGson) {
-        GsonConverterFactory.create(
-            get(
-                koinQualifierGson
-            )
-        )
+        GsonConverterFactory.create(get(koinQualifierGson))
     }
 }
 
@@ -50,7 +46,7 @@ val repositoryModule = module {
 val appModule = module {
 
     single {
-        val retrofitBuilder = RetrofitFactory(
+        val retrofitBuilder = BaseRetrofitClient(
             baseUrl = BASE_URL,
             converterFactory = get(koinQualifierConverterFactoryGson),
             connectionTimeoutSec = CONNECT_TIMEOUT,
@@ -58,7 +54,7 @@ val appModule = module {
             writeTimeoutSec = WRITE_TIMEOUT
         )
 
-        retrofitBuilder.buildClientRetrofit().create(PunkApi::class.java)
+        retrofitBuilder.buildClient().create(PunkApi::class.java)
     }
 
     includes(viewModelModule, repositoryModule, converterFactoryModule)

@@ -7,7 +7,7 @@ import retrofit2.Converter.Factory
 import retrofit2.Retrofit
 import java.util.concurrent.TimeUnit
 
-class RetrofitFactory(
+class BaseRetrofitClient(
     private val baseUrl: String,
     private val converterFactory: Factory,
     private val connectionTimeoutSec: Long,
@@ -16,7 +16,7 @@ class RetrofitFactory(
 ) {
 
 
-    fun buildClientRetrofit(): Retrofit {
+    fun buildClient(): Retrofit {
         val httpLoggingInterceptor = HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
             else HttpLoggingInterceptor.Level.NONE
