@@ -1,4 +1,4 @@
-package com.ditta.worldbeers.paging
+package com.ditta.worldbeers.ui.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

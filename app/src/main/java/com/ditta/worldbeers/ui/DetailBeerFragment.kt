@@ -6,17 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.ditta.worldbeers.R
 import com.ditta.worldbeers.databinding.FragmentDetailBeerBinding
 import com.ditta.worldbeers.ui.adapter.FoodPairingAdapter
 
 class DetailBeerFragment : Fragment() {
 
-    companion object {
-        const val FIRST_BREWED = "firstBrewed"
-        const val FOOD_PAIRING = "foodPairing"
-        const val BREWERS_TIPS = "brewersTips"
-    }
+    private val args: DetailBeerFragmentArgs by navArgs()
 
     private var _binding: FragmentDetailBeerBinding? = null
     private val binding get() = _binding!!
@@ -24,14 +21,13 @@ class DetailBeerFragment : Fragment() {
     private lateinit var firstBrewed: String
     private lateinit var foodPairing: List<String>
     private lateinit var brewersTips: String
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            firstBrewed = it.getString(FIRST_BREWED).toString()
-            brewersTips = it.getString(BREWERS_TIPS).toString()
-            foodPairing = it.getStringArray(FOOD_PAIRING)?.toList() ?: emptyList()
-        }
+        firstBrewed = args.firstBrewed
+        brewersTips = args.brewersTips
+        foodPairing = args.foodPairing.toList()
+
     }
 
     override fun onCreateView(

@@ -7,7 +7,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import com.ditta.worldbeers.network.PunkApiConstant.MAX_RESULT_PER_PAGE
 import com.ditta.worldbeers.network.PunkRepository
-import com.ditta.worldbeers.paging.BeerPagingSource
+import com.ditta.worldbeers.ui.paging.BeerPagingSource
 
 class BeerListViewModel(private val punkRepository: PunkRepository) : ViewModel() {
 
