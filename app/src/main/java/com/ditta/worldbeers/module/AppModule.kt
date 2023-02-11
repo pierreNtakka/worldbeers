@@ -14,21 +14,45 @@ import com.google.gson.GsonBuilder
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
+import retrofit2.Converter
+import retrofit2.converter.gson.GsonConverterFactory
 
 val koinQualifierGson = named("GSON")
+val koinQualifierConverterFactoryGson = named("CONVERTER_FACTORY_GSON")
+
+val converterFactoryModule = module {
+    single<Gson>(koinQualifierGson) {
+        GsonBuilder().create()
+    }
+
+    single<Converter.Factory>(koinQualifierConverterFactoryGson) {
+        GsonConverterFactory.create(
+            get(
+                koinQualifierGson
+            )
+        )
+    }
+}
+
+val viewModelModule = module {
+
+    viewModel {
+        BeerListViewModel(get())
+    }
+}
+
+val repositoryModule = module {
+    single<PunkRepository> {
+        PunkRepositoryImpl(get())
+    }
+}
 
 val appModule = module {
 
-    single<Gson>(koinQualifierGson) {
-        GsonBuilder()
-            .create()
-    }
-
     single {
-
         val retrofitBuilder = RetrofitFactory(
             baseUrl = BASE_URL,
-            gson = get(koinQualifierGson),
+            converterFactory = get(koinQualifierConverterFactoryGson),
             connectionTimeoutSec = CONNECT_TIMEOUT,
             readTimeoutSec = READ_TIMEOUT,
             writeTimeoutSec = WRITE_TIMEOUT
@@ -37,13 +61,5 @@ val appModule = module {
         retrofitBuilder.buildClientRetrofit().create(PunkApi::class.java)
     }
 
-    single<PunkRepository> {
-        PunkRepositoryImpl(get())
-    }
-
-    viewModel {
-        BeerListViewModel(get())
-    }
-
-
+    includes(viewModelModule, repositoryModule, converterFactoryModule)
 }
