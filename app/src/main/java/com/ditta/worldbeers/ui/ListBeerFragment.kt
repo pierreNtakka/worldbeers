@@ -5,20 +5,18 @@ import android.view.*
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.ditta.worldbeers.R
 import com.ditta.worldbeers.databinding.FragmentListBeerBinding
 import com.ditta.worldbeers.model.Beer
-import com.ditta.worldbeers.network.PunkRepository
 import com.ditta.worldbeers.ui.adapter.BeerLoadStateAdapter
 import com.ditta.worldbeers.ui.adapter.BeerPagingAdapter
 import com.ditta.worldbeers.ui.viewmodel.BeerListViewModel
-import com.ditta.worldbeers.ui.viewmodel.BeerListViewModelFactory
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListBeerFragment : Fragment(), MenuProvider {
 
@@ -27,9 +25,7 @@ class ListBeerFragment : Fragment(), MenuProvider {
 
     private lateinit var beerAdapter: BeerPagingAdapter
 
-    private val viewModel: BeerListViewModel by viewModels {
-        BeerListViewModelFactory(punkRepository = PunkRepository())
-    }
+    private val viewModel by viewModel<BeerListViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

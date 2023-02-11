@@ -1,8 +1,6 @@
 package com.ditta.worldbeers.network
 
-
 import com.ditta.worldbeers.model.Beer
-import com.ditta.worldbeers.network.PunkApiConstant.BASE_URL
 import com.ditta.worldbeers.network.PunkApiConstant.BEERNAME_QUERY_PARAM_NAME
 import com.ditta.worldbeers.network.PunkApiConstant.END_POINT_BEER
 import com.ditta.worldbeers.network.PunkApiConstant.PAGE_QUERY_PARAM_NAME
@@ -16,9 +14,12 @@ object PunkApiConstant {
     const val BEERNAME_QUERY_PARAM_NAME = "beer_name"
     const val INITIAL_PAGE_INDEX = 1
     const val MAX_RESULT_PER_PAGE = 25
+    const val CONNECT_TIMEOUT = 20L
+    const val READ_TIMEOUT = 60L
+    const val WRITE_TIMEOUT = 120L
 }
 
-interface PunkApiService {
+interface PunkApi {
     @GET(END_POINT_BEER)
     suspend fun getBeers(
         @Query(PAGE_QUERY_PARAM_NAME) page: Int? = null,
@@ -26,10 +27,5 @@ interface PunkApiService {
     ): List<Beer>
 }
 
-object PunkApi {
-    val service: PunkApiService by lazy {
-        NetworkModule.provideRetrofitClient(BASE_URL).create(PunkApiService::class.java)
-    }
-}
 
 

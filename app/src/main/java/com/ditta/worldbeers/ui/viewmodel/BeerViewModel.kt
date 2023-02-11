@@ -1,7 +1,6 @@
 package com.ditta.worldbeers.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
@@ -38,25 +37,9 @@ class BeerListViewModel(private val punkRepository: PunkRepository) : ViewModel(
         pagingSource?.invalidate()
     }
 
-    fun sync(){
+    fun sync() {
         currentUserSearch = ""
         pagingSource?.invalidate()
     }
 
-}
-
-
-class BeerListViewModelFactory(
-    private val punkRepository: PunkRepository
-) :
-    ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(BeerListViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return BeerListViewModel(
-                punkRepository
-            ) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
-    }
 }
