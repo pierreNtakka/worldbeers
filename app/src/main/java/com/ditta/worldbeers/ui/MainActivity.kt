@@ -6,9 +6,6 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.ditta.worldbeers.R
-import com.ditta.worldbeers.module.koinQualifierGson
-import com.google.gson.Gson
-import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
