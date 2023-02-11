@@ -9,14 +9,17 @@ import com.ditta.worldbeers.network.PunkRepository
 import com.ditta.worldbeers.network.PunkRepositoryImpl
 import com.ditta.worldbeers.network.RetrofitFactory
 import com.ditta.worldbeers.ui.viewmodel.BeerListViewModel
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
+val koinQualifierGson = named("GSON")
 
 val appModule = module {
 
-    single {
+    single<Gson>(koinQualifierGson) {
         GsonBuilder()
             .create()
     }
@@ -25,7 +28,7 @@ val appModule = module {
 
         val retrofitBuilder = RetrofitFactory(
             baseUrl = BASE_URL,
-            gson = get(),
+            gson = get(koinQualifierGson),
             connectionTimeoutSec = CONNECT_TIMEOUT,
             readTimeoutSec = READ_TIMEOUT,
             writeTimeoutSec = WRITE_TIMEOUT

@@ -27,7 +27,6 @@ class DetailBeerFragment : Fragment() {
         firstBrewed = args.firstBrewed
         brewersTips = args.brewersTips
         foodPairing = args.foodPairing.toList()
-
     }
 
     override fun onCreateView(
