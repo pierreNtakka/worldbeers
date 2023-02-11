@@ -64,4 +64,6 @@ dependencies {
 
     //Koin
     implementation 'io.insert-koin:koin-android:3.3.3'
+    testImplementation "io.insert-koin:koin-test:3.3.3"
+    testImplementation "io.insert-koin:koin-test-junit4:3.3.3"
 }
