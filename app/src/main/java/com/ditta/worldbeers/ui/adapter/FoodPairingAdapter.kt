@@ -11,7 +11,6 @@ import com.ditta.worldbeers.model.Beer
 class FoodPairingAdapter(private val foodPairing: List<String>) :
     RecyclerView.Adapter<FoodPairingAdapter.FoodPairViewHolder>() {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodPairViewHolder {
         val binding =
             ItemFoodPairBinding.inflate(LayoutInflater.from(parent.context), parent, false)
