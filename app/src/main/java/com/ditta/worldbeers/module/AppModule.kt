@@ -11,6 +11,7 @@ import com.ditta.worldbeers.network.PunkRepositoryImpl
 import com.ditta.worldbeers.ui.viewmodel.BeerListViewModel
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -52,7 +53,7 @@ val appModule = module {
             connectionTimeoutSec = CONNECT_TIMEOUT,
             readTimeoutSec = READ_TIMEOUT,
             writeTimeoutSec = WRITE_TIMEOUT
-        ).buildClient().create(PunkApi::class.java)
+        ).buildClient(androidContext()).create(PunkApi::class.java)
     }
 
     includes(viewModelModule, repositoryModule, converterFactoryModule)

@@ -1,8 +1,4 @@
 
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
-m
-=app/src/main/java/com/ditta/worldbeers/ui/ListBeerFragment.kt,8\9\89ee8742149e024c99c40a1b49a5966d3125d02f
 t
 Dapp/src/main/java/com/ditta/worldbeers/ui/paging/BeerPagingSource.kt,6\1\61f991fa21ee029de66eff2f99751afcef520182
 o
@@ -12,12 +8,6 @@ i
 p
 @app/src/main/java/com/ditta/worldbeers/network/PunkRepository.kt,e\d\ed2239bebbdf0aa728f6c4b203d6b87cdf4e5918
 t
-Dapp/src/main/java/com/ditta/worldbeers/network/BaseRetrofitClient.kt,6\9\699c4cf9d2052f33520caf42e58d77cc4a4436ee
-t
 Dapp/src/main/java/com/ditta/worldbeers/ui/viewmodel/BeerViewModel.kt,e\f\ef515d9f3ff2fa93c0a9c6b9142902bd17382818
-i
-9app/src/main/java/com/ditta/worldbeers/ui/MainActivity.kt,6\5\65da7d593eb7c8c896ed7bff1a715aa01f66c1d2
-n
->app/src/main/java/com/ditta/worldbeers/WorldBeerApplication.kt,6\9\695cf6fd8a2511009dc844ecd55bf900cf4a48e7
-j
-:app/src/main/java/com/ditta/worldbeers/module/AppModule.kt,7\5\75d0927b0d0d02791c00406bd354b54ca9384254
+m
+=app/src/main/java/com/ditta/worldbeers/ui/ListBeerFragment.kt,8\9\89ee8742149e024c99c40a1b49a5966d3125d02f

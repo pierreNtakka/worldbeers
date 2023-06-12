@@ -17,5 +17,6 @@ class WorldBeerApplication : Application() {
             androidContext(this@WorldBeerApplication)
             modules(appModule)
         }
+
     }
 }
