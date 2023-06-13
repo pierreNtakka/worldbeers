@@ -1,13 +1,19 @@
 
-t
-Dapp/src/main/java/com/ditta/worldbeers/ui/paging/BeerPagingSource.kt,6\1\61f991fa21ee029de66eff2f99751afcef520182
-o
-?app/src/main/java/com/ditta/worldbeers/ui/DetailBeerFragment.kt,c\b\cb8e7ae0782007f4a0d8c65e70e1b5b10dfd35ca
-i
-9app/src/main/java/com/ditta/worldbeers/network/PunkApi.kt,6\1\61bff45ee2a582897f88ff821033141c732580ef
 p
 @app/src/main/java/com/ditta/worldbeers/network/PunkRepository.kt,e\d\ed2239bebbdf0aa728f6c4b203d6b87cdf4e5918
+i
+9app/src/main/java/com/ditta/worldbeers/network/PunkApi.kt,6\1\61bff45ee2a582897f88ff821033141c732580ef
+d
+4app/src/main/java/com/ditta/worldbeers/model/Beer.kt,9\b\9bd58b6cd4e3b92ce3e4e539efa36f9ef387ded8
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 t
 Dapp/src/main/java/com/ditta/worldbeers/ui/viewmodel/BeerViewModel.kt,e\f\ef515d9f3ff2fa93c0a9c6b9142902bd17382818
-m
-=app/src/main/java/com/ditta/worldbeers/ui/ListBeerFragment.kt,8\9\89ee8742149e024c99c40a1b49a5966d3125d02f
+k
+;app/src/test/java/com/ditta/worldbeers/BeerModelUnitTest.kt,6\c\6c351d0bf163a9e9c3e1230712baf376f0862681
+g
+7app/src/main/java/com/ditta/worldbeers/ui/util/Utils.kt,8\5\856e05a6157ce4576bb1cfe67a41de1a874bde1c
+t
+Dapp/src/main/java/com/ditta/worldbeers/ui/paging/BeerPagingSource.kt,6\1\61f991fa21ee029de66eff2f99751afcef520182
+n
+>app/src/main/java/com/ditta/worldbeers/WorldBeerApplication.kt,6\9\695cf6fd8a2511009dc844ecd55bf900cf4a48e7
